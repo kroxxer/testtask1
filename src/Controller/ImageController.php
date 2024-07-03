@@ -32,6 +32,7 @@ class ImageController extends AbstractController
         $selector = "//img[@src]";
 
         $page = file_get_contents($url);
+
         $crawler = new Crawler($page, useHtml5Parser: true);
         $images = $crawler->evaluate($selector)->each(function (Crawler $node): string {
 
