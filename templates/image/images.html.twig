@@ -1,3 +1,13 @@
+<tr>
+    <td colspan="2">Images amount {{ imageAmount }}</td>
+    <td colspan="2">Images sizes {{ imagesSize|number_format(2) }}MB</td>
+</tr>
 {% for image in images %}
-    <td><img src="{{ image }}"/></td>
+    {% if loop.index0 % 4 == 0 %}
+        <tr>
+    {% endif %}
+    <td><img src="{{ image }}" width="100px"/></td>
+    {% if loop.index0 % 4 == 3 %}
+        </tr>
+    {% endif %}
 {% endfor %}

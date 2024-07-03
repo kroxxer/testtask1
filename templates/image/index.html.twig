@@ -6,12 +6,9 @@
     <main class="m-auto p-auto text-center">
         <span class="container">
             <input type="text" id="url">
-            <button class="btn" id="go">Go</button>
+            <button class="btn btn-primary" id="go">Go</button>
         </span>
         <table class="table table-striped table-bordered text-center">
-            <thead>
-                <th colspan="4"></th>
-            </thead>
             <tbody id="images">
             </tbody>
         </table>
@@ -23,7 +20,7 @@
 
         async function updatePersons(url)
         {
-            let parameters = new Map().set;
+            let parameters = new Map().set('url', document.getElementById('url').value);
             await fetch(url, {
                 method: 'POST',
                 headers: {
@@ -32,7 +29,7 @@
                 body: JSON.stringify(Array.from(parameters.entries()))
             })
                 .then(response => response.text())
-                .then(response => document.getElementById('persons').innerHTML = response);
+                .then(response => document.getElementById('images').innerHTML = response);
         }
     </script>
     {% endblock %}
