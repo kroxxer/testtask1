@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+###> doctrine/doctrine-bundle ###
+  php:
+    build: ./
+    volumes:
+      - ./web:/var/www/html/
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
